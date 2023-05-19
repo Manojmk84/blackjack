@@ -30,18 +30,12 @@ public class Players {
 	
 	public int getScore() {
 	    int score = playerCards.stream().mapToInt(card -> card.getCardValue()).sum();
-	    int aceCount = (int) playerCards.stream().filter(card -> card.getCardRank().equals("A")).count();
-
-	    while (score > 21 && aceCount > 0) {
-	        score -= 10;
-	        aceCount--;
-	    }
 
 	    return score;
 	}
 	
 	public String getCardsString() {
 	    return String.join(", ", playerCards.stream().map(card -> card.getCardRank()).collect(Collectors.toList()));
-	}
+	} 
 	
 }
